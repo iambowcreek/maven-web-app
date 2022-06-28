@@ -22,7 +22,7 @@ stage ("5.Artifactory"){
 }
 stage ("6.DeploytoUAT"){
   sh "echo deploying to application server"
-  deploy adapters: [tomcat9(credentialsId: 'Tomcat-Cred', path: '', url: 'http://35.162.211.12:8080/')], contextPath: null, war: 'target/*.war'
+  deploy adapters: [tomcat9(credentialsId: 'Tomcat-Cred', path: '', url: 'http://34.222.45.48:8080/')], contextPath: null, war: 'target/*.war'
 }
 stage ("7.Approval"){
   sh "echo Approval Needed"
@@ -32,7 +32,7 @@ stage ("7.Approval"){
 }
 stage ("8.DeploytoPROD"){
   sh "echo deploying to application server"
-  deploy adapters: [tomcat9(credentialsId: 'Tomcat-Cred', path: '', url: 'http://35.162.211.12:8080/')], contextPath: null, war: 'target/*.war'
+  deploy adapters: [tomcat9(credentialsId: 'Tomcat-Cred', path: '', url: 'http://34.222.45.48:8080/')], contextPath: null, war: 'target/*.war'
 }
 stage ("9.SlackNotification"){
   sh "echo send slack notification to Devops team"
